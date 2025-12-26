@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { Leaf, Scissors, TreePine, Menu, X, Phone, Star, MapPin, CheckCircle, Send, Loader2 } from 'lucide-react';
+import { FormEvent } from 'react';
 
 export default function LandscaperPro() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,7 +47,6 @@ const handleSubmit = async (e) => {
   
   setTimeout(() => setFormStatus('idle'), 5000);
 };
-
 
   return (
     <div className="bg-slate-50 font-sans scroll-smooth">
