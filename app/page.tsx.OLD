@@ -1,0 +1,134 @@
+"use client";
+import { useState } from 'react';
+import { Leaf, Scissors, TreePine, Menu, X, Phone, Star, MapPin, CheckCircle } from 'lucide-react';
+
+export default function LuxuryLandscaper() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Composant pour les sections avec image de fond fondue
+  const BackgroundSection = ({ imageUrl, children, id }) => (
+    <section id={id} className="relative min-h-[600px] flex items-center py-20 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img src={imageUrl} alt="Jardin" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-900/70 to-transparent"></div>
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-white">
+        {children}
+      </div>
+    </section>
+  );
+
+  return (
+    <div className="bg-slate-50">
+      {/* --- NAVIGATION --- */}
+      <nav className="fixed w-full bg-white/80 backdrop-blur-lg z-50 border-b border-emerald-100">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-2 text-emerald-800 font-black text-2xl tracking-tight">
+            <Leaf className="text-emerald-500" fill="currentColor" /> NATURE DESIGN
+          </div>
+          <div className="hidden md:flex gap-10 items-center font-semibold text-slate-700">
+            {['Services', 'Réalisations', 'Témoignages'].map(item => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-emerald-600 transition-colors">{item}</a>
+            ))}
+            <button className="bg-emerald-600 text-white px-6 py-3 rounded-full hover:shadow-emerald-200 hover:shadow-xl transition-all">
+              Devis en 24h
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* --- HERO (SECTION 1) --- */}
+      <BackgroundSection imageUrl="images.unsplash.com" id="home">
+        <div className="max-w-2xl">
+          <span className="bg-emerald-500/20 text-emerald-300 px-4 py-1 rounded-full text-sm font-bold mb-6 inline-block border border-emerald-500/30 uppercase tracking-widest">
+            Expert Paysagiste 2025
+          </span>
+          <h1 className="text-6xl md:text-8xl font-black mb-8 leading-none">L'Art du Jardin <br/><span className="text-emerald-400 font-light italic text-5xl md:text-7xl">Redéfini.</span></h1>
+          <p className="text-xl text-slate-300 mb-10 leading-relaxed">
+            Transformez votre terrain en un havre de paix sur-mesure. Conception architecturale et entretien haute couture pour particuliers exigeants.
+          </p>
+          <div className="flex gap-4">
+            <button className="bg-white text-emerald-900 px-8 py-4 rounded-2xl font-bold hover:bg-emerald-50 transition shadow-2xl">Explorer nos Jardins</button>
+            <button className="bg-transparent border border-white/40 px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition">Nos tarifs</button>
+          </div>
+        </div>
+      </BackgroundSection>
+
+      {/* --- SERVICES (GRID) --- */}
+      <section id="services" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+            <div>
+              <h2 className="text-emerald-600 font-bold uppercase tracking-tighter mb-2">Notre Savoir-Faire</h2>
+              <p className="text-4xl font-black text-slate-900">Services Clé en Main</p>
+            </div>
+            <p className="text-slate-500 max-w-sm">De la première esquisse à la dernière plantation, nous gérons chaque étape de votre projet.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { icon: <TreePine size={32} />, title: "Architecture Végétale", desc: "Création de plans 3D et sélection d'essences rares adaptées à votre sol." },
+              { icon: <Scissors size={32} />, title: "Taille & Soin", desc: "Entretien saisonnier, élagage de précision et fertilisation biologique." },
+              { icon: <MapPin size={32} />, title: "Maçonnerie Paysagère", desc: "Allées en pierre naturelle, terrasses en bois noble et bassins zen." }
+            ].map((s, i) => (
+              <div key={i} className="group p-10 bg-slate-50 rounded-[40px] hover:bg-emerald-800 transition-all duration-500 cursor-pointer">
+                <div className="bg-white text-emerald-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-emerald-500 group-hover:text-white transition-colors">{s.icon}</div>
+                <h3 className="text-2xl font-bold mb-4 text-slate-900 group-hover:text-white">{s.title}</h3>
+                <p className="text-slate-600 group-hover:text-emerald-100">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- RÉALISATIONS (SECTION 2 AVEC FOND FONDUE) --- */}
+      <BackgroundSection imageUrl="images.unsplash.com" id="réalisations">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-5xl font-black mb-8 leading-tight">Derniers Projets d'Excellence</h2>
+            <div className="space-y-6">
+              {["Domaine de la Source (2024)", "Jardin Zen Minimaliste", "Rooftop Tropical"].map((p, i) => (
+                <div key={i} className="flex items-center gap-4 bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20">
+                  <CheckCircle className="text-emerald-400" />
+                  <span className="text-lg font-medium">{p}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <img src="images.unsplash.com" className="rounded-3xl shadow-2xl mt-12" alt="Projet 1"/>
+            <img src="images.unsplash.com" className="rounded-3xl shadow-2xl" alt="Projet 2"/>
+          </div>
+        </div>
+      </BackgroundSection>
+
+      {/* --- TÉMOIGNAGES --- */}
+      <section id="témoignages" className="py-24 bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="flex justify-center gap-1 mb-8">
+            {[1,2,3,4,5].map(n => <Star key={n} fill="#10b981" className="text-emerald-500" />)}
+          </div>
+          <p className="text-3xl md:text-4xl font-light italic mb-10">
+            "Une transformation radicale de notre extérieur. L'équipe a su écouter nos besoins tout en apportant une vision artistique incroyable."
+          </p>
+          <p className="font-bold text-emerald-400">— Marc & Sophie, Lyon</p>
+        </div>
+      </section>
+
+      {/* --- FOOTER --- */}
+      <footer className="bg-white py-12 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="text-emerald-800 font-bold text-xl">NATURE DESIGN © 2025</div>
+          <div className="flex gap-8 text-slate-500">
+            <a href="#" className="hover:text-emerald-600 transition">Mentions Légales</a>
+            <a href="#" className="hover:text-emerald-600 transition">Confidentialité</a>
+          </div>
+          <div className="flex items-center gap-2 text-emerald-700 font-bold bg-emerald-50 px-4 py-2 rounded-xl">
+            <Phone size={18} /> 04 00 00 00 00
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
