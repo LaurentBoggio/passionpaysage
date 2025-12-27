@@ -68,7 +68,7 @@ const handleSubmit = async (e) => {
               }`}>{item}</a>
             ))}
             <a href="tel:0400000000" className="bg-emerald-600 text-white px-6 py-3 rounded-full hover:bg-emerald-700 shadow-xl flex items-center gap-2">
-              <Phone size={18} /> 04 01 02 03 04
+              <Phone size={18} /> 04 02 02 03 04
             </a>
           </div>
 
