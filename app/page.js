@@ -58,7 +58,7 @@ const handleSubmit = async (e) => {
           <div className={`flex items-center gap-2 font-black text-2xl tracking-tighter transition-colors ${
             isScrolled ? "text-emerald-800" : "text-white"
           }`}>
-            <Leaf className="fill-emerald-500 text-emerald-500" /> VERT-DESIGN
+            <Leaf className="fill-emerald-500 text-emerald-500" /> PASSION PAYSAGE
           </div>
           
           <div className="hidden md:flex gap-8 items-center font-bold text-sm uppercase tracking-widest">
@@ -160,7 +160,7 @@ const handleSubmit = async (e) => {
       </section>
 
       <footer className="bg-slate-900 py-12 text-slate-500 text-center border-t border-white/5">
-        <p>© 2025 Vert-Design - Architectes du Paysage. Tous droits réservés.</p>
+        <p>© 2025 Passion-Paysage - Architectes du Paysage. Tous droits réservés.</p>
       </footer>
 
       {/* CSS Animé pour le zoom doux du Hero */}
